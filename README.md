@@ -18,7 +18,7 @@
 
 ## 🌐 Related Projects
 
-- **Frontend**: [live-departures](https://github.com/lukasznidecki/live-departures) - React web application
+- **Frontend**: [live-departures](https://github.com/lukasznidecki/live-departures) - PWA Angular App
 - **Infrastructure**: [live-departures-infra](https://github.com/lukasznidecki/live-departures-infra) - Deployment and
   infrastructure configuration
 
