@@ -52,6 +52,7 @@ logs/
 *.war
 *.ear
 hs_err_pid*
+.idea
 
 # Application specific
 application.properties.local
