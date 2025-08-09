@@ -104,7 +104,7 @@
       "stop_name": "Kukli\u0144skiego",
       "stop_num": "05",
       "timestamp": 1754728856,
-      "trip_headsign": "Podg\u00f3rze SKA",
+      "trip_headsign": "Podgórze SKA",
       "trip_id": "698_5"
     },
     {
@@ -143,7 +143,7 @@
       "service_id": "2",
       "shift": "497-01",
       "source": "gtfs",
-      "stop_name": "Podg\u00f3rze SKA",
+      "stop_name": "Podgórze SKA",
       "stop_num": "08",
       "timestamp": 1754728858,
       "trip_headsign": "Bagry T\u0119\u017cnia",
@@ -167,7 +167,7 @@
       "stop_name": "Bagry T\u0119\u017cnia",
       "stop_num": "01",
       "timestamp": 1754728860,
-      "trip_headsign": "Podg\u00f3rze SKA",
+      "trip_headsign": "Podgórze SKA",
       "trip_id": "702_3"
     },
     {
@@ -188,7 +188,7 @@
       "stop_name": "Dziekanowice Batowice SKA",
       "stop_num": "82",
       "timestamp": 1754728859,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "669_11"
     },
     {
@@ -269,10 +269,10 @@
       "service_id": "2",
       "shift": "280-01",
       "source": "gtfs",
-      "stop_name": "G\u00f3rka Narodowa P+R",
+      "stop_name": "Górka Narodowa P+R",
       "stop_num": "04",
       "timestamp": 1754728858,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "660_9"
     },
     {
@@ -290,10 +290,10 @@
       "service_id": "2",
       "shift": "171-01",
       "source": "gtfs",
-      "stop_name": "Jan\u00f3wka",
+      "stop_name": "Janówka",
       "stop_num": "01",
       "timestamp": 1754728865,
-      "trip_headsign": "Plesz\u00f3w",
+      "trip_headsign": "Pleszów",
       "trip_id": "557_15"
     },
     {
@@ -356,7 +356,7 @@
       "stop_name": null,
       "stop_num": null,
       "timestamp": 1754688619,
-      "trip_headsign": "Os. Kurdwan\u00f3w",
+      "trip_headsign": "Os. Kurdwanów",
       "trip_id": "1195_23"
     },
     {

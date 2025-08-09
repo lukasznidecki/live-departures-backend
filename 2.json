@@ -20,7 +20,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Niepo\u0142omice Dworzec",
+      "trip_headsign": "Niepołomice Dworzec",
       "trip_id": "676_6"
     },
     {
@@ -104,7 +104,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Wsch\u00f3d",
+      "trip_headsign": "Dworzec Główny Wschód",
       "trip_id": "581_9"
     },
     {
@@ -125,7 +125,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142mo\u0144skiego P\u0119tla",
+      "trip_headsign": "Chełmo\u0144skiego P\u0119tla",
       "trip_id": "1505_20058"
     },
     {
@@ -146,7 +146,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Pr\u0105dnik Bia\u0142y Zach\u00f3d",
+      "trip_headsign": "Prądnik Biały Zachód",
       "trip_id": "713_7"
     },
     {
@@ -167,7 +167,7 @@
       "service_id": "1505_SO",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Os. Piast\u00f3w",
+      "trip_headsign": "Os. Piastów",
       "trip_id": "1505_14059"
     },
     {
@@ -188,7 +188,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Micha\u0142owice P+R",
+      "trip_headsign": "Michałowice P+R",
       "trip_id": "687_6"
     },
     {
@@ -209,7 +209,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "575_7"
     },
     {
@@ -230,7 +230,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "680_11"
     },
     {
@@ -272,7 +272,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "504_10"
     },
     {
@@ -314,7 +314,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "504_10"
     },
     {
@@ -356,7 +356,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "526_6"
     },
     {
@@ -377,7 +377,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "706_8"
     },
     {
@@ -566,7 +566,7 @@
       "service_id": "2",
       "stop_num": "86",
       "stopping": false,
-      "trip_headsign": "Bronowice Ma\u0142e",
+      "trip_headsign": "Bronowice Małe",
       "trip_id": "485_8"
     },
     {
@@ -587,7 +587,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Bronowice Ma\u0142e",
+      "trip_headsign": "Bronowice Małe",
       "trip_id": "485_8"
     },
     {
@@ -608,7 +608,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "505_14"
     },
     {
@@ -629,7 +629,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Nowy Bie\u017can\u00f3w Po\u0142udnie",
+      "trip_headsign": "Nowy Bieżanów Południe",
       "trip_id": "709_8"
     },
     {
@@ -650,7 +650,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "681_11"
     },
     {
@@ -692,7 +692,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "555_7"
     },
     {
@@ -713,7 +713,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Cichy K\u0105cik",
+      "trip_headsign": "Cichy Kącik",
       "trip_id": "1505_14204"
     },
     {
@@ -734,7 +734,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "505_14"
     },
     {
@@ -776,7 +776,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142m",
+      "trip_headsign": "Chełm",
       "trip_id": "581_10"
     },
     {
@@ -797,7 +797,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Os. Kurdwan\u00f3w",
+      "trip_headsign": "Os. Kurdwanów",
       "trip_id": "575_8"
     },
     {
@@ -860,7 +860,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Pr\u0105dnik Bia\u0142y Zach\u00f3d",
+      "trip_headsign": "Prądnik Biały Zachód",
       "trip_id": "710_8"
     },
     {
@@ -881,7 +881,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Wsch\u00f3d",
+      "trip_headsign": "Dworzec Główny Wschód",
       "trip_id": "582_9"
     },
     {
@@ -923,7 +923,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142mo\u0144skiego P\u0119tla",
+      "trip_headsign": "Chełmo\u0144skiego P\u0119tla",
       "trip_id": "1505_19996"
     },
     {
@@ -944,7 +944,7 @@
       "service_id": "1505_SO",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Os. Piast\u00f3w",
+      "trip_headsign": "Os. Piastów",
       "trip_id": "1505_14293"
     },
     {
@@ -965,7 +965,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "576_8"
     },
     {
@@ -986,7 +986,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "527_7"
     },
     {
@@ -1007,7 +1007,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Micha\u0142owice P+R",
+      "trip_headsign": "Michałowice P+R",
       "trip_id": "688_10"
     },
     {
@@ -1070,7 +1070,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "506_15"
     },
     {
@@ -1133,7 +1133,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "506_15"
     },
     {
@@ -1154,7 +1154,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "707_8"
     },
     {
@@ -1196,7 +1196,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "682_3"
     },
     {
@@ -1301,7 +1301,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "528_7"
     },
     {
@@ -1322,7 +1322,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "556_6"
     },
     {
@@ -1343,7 +1343,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "503_14"
     },
     {
@@ -1364,7 +1364,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Cichy K\u0105cik",
+      "trip_headsign": "Cichy Kącik",
       "trip_id": "1505_14134"
     },
     {
@@ -1385,7 +1385,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Nowy Bie\u017can\u00f3w Po\u0142udnie",
+      "trip_headsign": "Nowy Bieżanów Południe",
       "trip_id": "706_9"
     },
     {
@@ -1427,7 +1427,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "503_14"
     },
     {
@@ -1553,7 +1553,7 @@
       "service_id": "2",
       "stop_num": "05",
       "stopping": false,
-      "trip_headsign": "Niepo\u0142omice Dworzec",
+      "trip_headsign": "Niepołomice Dworzec",
       "trip_id": "677_6"
     },
     {
@@ -1595,7 +1595,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Os. Kurdwan\u00f3w",
+      "trip_headsign": "Os. Kurdwanów",
       "trip_id": "576_9"
     },
     {
@@ -1658,7 +1658,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Niepo\u0142omice Dworzec",
+      "trip_headsign": "Niepołomice Dworzec",
       "trip_id": "677_6"
     },
     {
@@ -1679,7 +1679,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142mo\u0144skiego P\u0119tla",
+      "trip_headsign": "Chełmo\u0144skiego P\u0119tla",
       "trip_id": "1505_19930"
     },
     {
@@ -1700,7 +1700,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Pr\u0105dnik Bia\u0142y Zach\u00f3d",
+      "trip_headsign": "Prądnik Biały Zachód",
       "trip_id": "711_8"
     },
     {
@@ -1721,7 +1721,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Wsch\u00f3d",
+      "trip_headsign": "Dworzec Główny Wschód",
       "trip_id": "583_9"
     },
     {
@@ -1763,7 +1763,7 @@
       "service_id": "1505_SO",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Os. Piast\u00f3w",
+      "trip_headsign": "Os. Piastów",
       "trip_id": "1505_14208"
     },
     {
@@ -1784,7 +1784,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "573_6"
     },
     {
@@ -1805,7 +1805,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "683_14"
     },
     {
@@ -1826,7 +1826,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Micha\u0142owice P+R",
+      "trip_headsign": "Michałowice P+R",
       "trip_id": "686_12"
     },
     {
@@ -1847,7 +1847,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "504_12"
     },
     {
@@ -1910,7 +1910,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "504_12"
     },
     {
@@ -1931,7 +1931,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "522_8"
     },
     {
@@ -1952,7 +1952,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "708_8"
     },
     {
@@ -2120,7 +2120,7 @@
       "service_id": "2",
       "stop_num": "86",
       "stopping": false,
-      "trip_headsign": "Bronowice Ma\u0142e",
+      "trip_headsign": "Bronowice Małe",
       "trip_id": "486_8"
     },
     {
@@ -2141,7 +2141,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Bronowice Ma\u0142e",
+      "trip_headsign": "Bronowice Małe",
       "trip_id": "486_8"
     },
     {
@@ -2162,7 +2162,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "552_8"
     },
     {
@@ -2183,7 +2183,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "505_16"
     },
     {
@@ -2204,7 +2204,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Cichy K\u0105cik",
+      "trip_headsign": "Cichy Kącik",
       "trip_id": "1505_14063"
     },
     {
@@ -2225,7 +2225,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "684_7"
     },
     {
@@ -2246,7 +2246,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Nowy Bie\u017can\u00f3w Po\u0142udnie",
+      "trip_headsign": "Nowy Bieżanów Południe",
       "trip_id": "707_9"
     },
     {
@@ -2288,7 +2288,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "505_16"
     },
     {
@@ -2330,7 +2330,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142m",
+      "trip_headsign": "Chełm",
       "trip_id": "583_10"
     },
     {
@@ -2351,7 +2351,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Os. Kurdwan\u00f3w",
+      "trip_headsign": "Os. Kurdwanów",
       "trip_id": "573_7"
     },
     {
@@ -2414,7 +2414,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142mo\u0144skiego P\u0119tla",
+      "trip_headsign": "Chełmo\u0144skiego P\u0119tla",
       "trip_id": "1505_19434"
     },
     {
@@ -2435,7 +2435,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Pr\u0105dnik Bia\u0142y Zach\u00f3d",
+      "trip_headsign": "Prądnik Biały Zachód",
       "trip_id": "712_8"
     },
     {
@@ -2456,7 +2456,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Wsch\u00f3d",
+      "trip_headsign": "Dworzec Główny Wschód",
       "trip_id": "581_11"
     },
     {
@@ -2498,7 +2498,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "523_8"
     },
     {
@@ -2519,7 +2519,7 @@
       "service_id": "1505_SO",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Os. Piast\u00f3w",
+      "trip_headsign": "Os. Piastów",
       "trip_id": "1505_14136"
     },
     {
@@ -2540,7 +2540,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "574_9"
     },
     {
@@ -2582,7 +2582,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Micha\u0142owice P+R",
+      "trip_headsign": "Michałowice P+R",
       "trip_id": "687_8"
     },
     {
@@ -2666,7 +2666,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "506_17"
     },
     {
@@ -2729,7 +2729,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "506_17"
     },
     {
@@ -2750,7 +2750,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "709_9"
     },
     {
@@ -2792,7 +2792,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "685_14"
     },
     {
@@ -2897,7 +2897,7 @@
       "service_id": "2",
       "stop_num": "01",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "524_9"
     },
     {
@@ -2918,7 +2918,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "G\u00f3rka Narodowa P+R",
+      "trip_headsign": "Górka Narodowa P+R",
       "trip_id": "553_8"
     },
     {
@@ -2939,7 +2939,7 @@
       "service_id": "2",
       "stop_num": "08",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "503_16"
     },
     {
@@ -2960,7 +2960,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Cichy K\u0105cik",
+      "trip_headsign": "Cichy Kącik",
       "trip_id": "1505_14297"
     },
     {
@@ -2981,7 +2981,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Nowy Bie\u017can\u00f3w Po\u0142udnie",
+      "trip_headsign": "Nowy Bieżanów Południe",
       "trip_id": "708_9"
     },
     {
@@ -3023,7 +3023,7 @@
       "service_id": "2",
       "stop_num": "03",
       "stopping": false,
-      "trip_headsign": "Dworzec G\u0142\u00f3wny Zach\u00f3d",
+      "trip_headsign": "Dworzec Główny Zachód",
       "trip_id": "503_16"
     },
     {
@@ -3107,7 +3107,7 @@
       "service_id": "2",
       "stop_num": "05",
       "stopping": false,
-      "trip_headsign": "Niepo\u0142omice Dworzec",
+      "trip_headsign": "Niepołomice Dworzec",
       "trip_id": "678_6"
     },
     {
@@ -3149,7 +3149,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Os. Kurdwan\u00f3w",
+      "trip_headsign": "Os. Kurdwanów",
       "trip_id": "574_10"
     },
     {
@@ -3212,7 +3212,7 @@
       "service_id": "2",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Niepo\u0142omice Dworzec",
+      "trip_headsign": "Niepołomice Dworzec",
       "trip_id": "678_6"
     },
     {
@@ -3233,7 +3233,7 @@
       "service_id": "1505_SO",
       "stop_num": "04",
       "stopping": false,
-      "trip_headsign": "Che\u0142mo\u0144skiego P\u0119tla",
+      "trip_headsign": "Chełmo\u0144skiego P\u0119tla",
       "trip_id": "1505_20126"
     },
     {
@@ -3254,7 +3254,7 @@
       "service_id": "2",
       "stop_num": "09",
       "stopping": false,
-      "trip_headsign": "Pr\u0105dnik Bia\u0142y Zach\u00f3d",
+      "trip_headsign": "Prądnik Biały Zachód",
       "trip_id": "713_9"
     }
   ]
