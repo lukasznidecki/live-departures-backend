@@ -38,6 +38,7 @@
 - **Jackson** - JSON serialization/deserialization
 - **SmallRye OpenAPI** - API documentation and Swagger UI
 - **Maven** - Dependency management and build tool
+- **Helm** - Kubernetes deployment and package management
 
 ## 📋 API Endpoints
 
