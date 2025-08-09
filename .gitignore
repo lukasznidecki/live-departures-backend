@@ -56,3 +56,6 @@ hs_err_pid*
 
 # Application specific
 application.properties.local
+
+
+.claude/*
