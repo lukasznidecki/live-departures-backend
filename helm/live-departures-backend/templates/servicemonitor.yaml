@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}
+    release: monitoring
 spec:
   selector:
     matchLabels:
