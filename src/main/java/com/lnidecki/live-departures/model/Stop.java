@@ -1,11 +1,19 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Stop {
+    @JsonProperty("bus")
     public Boolean bus;
+    @JsonProperty("stop_lat")
     public Double stopLat;
+    @JsonProperty("stop_lon")
     public Double stopLon;
+    @JsonProperty("stop_name")
     public String stopName;
+    @JsonProperty("stop_num")
     public String stopNum;
+    @JsonProperty("tram")
     public Boolean tram;
 
     public Stop() {}

@@ -1,24 +1,45 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ActiveVehicle {
+    @JsonProperty("bearing")
     public Double bearing;
+    @JsonProperty("block_id")
     public String blockId;
+    @JsonProperty("category")
     public String category;
+    @JsonProperty("current_status")
     public Integer currentStatus;
+    @JsonProperty("floor")
     public String floor;
+    @JsonProperty("full_kmk_id")
     public String fullKmkId;
+    @JsonProperty("key")
     public String key;
+    @JsonProperty("kmk_id")
     public String kmkId;
+    @JsonProperty("latitude")
     public Double latitude;
+    @JsonProperty("longitude")
     public Double longitude;
+    @JsonProperty("route_short_name")
     public String routeShortName;
+    @JsonProperty("service_id")
     public String serviceId;
+    @JsonProperty("shift")
     public String shift;
+    @JsonProperty("source")
     public String source;
+    @JsonProperty("stop_name")
     public String stopName;
+    @JsonProperty("stop_num")
     public String stopNum;
+    @JsonProperty("timestamp")
     public Long timestamp;
+    @JsonProperty("trip_headsign")
     public String tripHeadsign;
+    @JsonProperty("trip_id")
     public String tripId;
 
     public ActiveVehicle() {}

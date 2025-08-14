@@ -1,24 +1,45 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class StopTime {
+    @JsonProperty("arrival")
     public Boolean arrival;
+    @JsonProperty("block_id")
     public String blockId;
+    @JsonProperty("category")
     public String category;
+    @JsonProperty("departure_timestamp")
     public Long departureTimestamp;
+    @JsonProperty("hidden")
     public Boolean hidden;
+    @JsonProperty("key")
     public String key;
+    @JsonProperty("kmk_id")
     public String kmkId;
+    @JsonProperty("live")
     public Boolean live;
+    @JsonProperty("old")
     public Boolean old;
+    @JsonProperty("planned_departure_time")
     public String plannedDepartureTime;
+    @JsonProperty("planned_departure_timestamp")
     public Long plannedDepartureTimestamp;
+    @JsonProperty("predicted_delay")
     public Double predictedDelay;
+    @JsonProperty("predicted_departure_timestamp")
     public Double predictedDepartureTimestamp;
+    @JsonProperty("route_short_name")
     public String routeShortName;
+    @JsonProperty("service_id")
     public String serviceId;
+    @JsonProperty("stop_num")
     public String stopNum;
+    @JsonProperty("stopping")
     public Boolean stopping;
+    @JsonProperty("trip_headsign")
     public String tripHeadsign;
+    @JsonProperty("trip_id")
     public String tripId;
 
     public StopTime() {}
