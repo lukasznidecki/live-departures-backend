@@ -30,18 +30,123 @@ public class DataService {
 
     public List<ActiveVehicle> getActiveVehicles() {
         List<ActiveVehicle> vehicles = new ArrayList<>();
-        vehicles.add(new ActiveVehicle(225.0, "488", "bus", 2, "low_floor", "BA114",
-                "gtfs_mpk_BA114_488_11", "BA114", 50.093624114990234,
-                20.063194274902344, "422", "2", "122-01", "gtfs",
-                "Darwina", "03", 1754728856L, "Aleja Przyjaźni", "488_11"));
+        
+        try {
+            var busVehicles = ttssClient.getBusVehicles("CORRECTED", "ROUTE_BASED", "0");
+            if (busVehicles != null && busVehicles.vehicles != null) {
+                for (var vehicle : busVehicles.vehicles) {
+                    if (vehicle.isDeleted == null || !vehicle.isDeleted) {
+                        String routeNumber = extractRouteNumber(vehicle.name);
+                        String destination = extractDestination(vehicle.name);
+                        
+                        vehicles.add(new ActiveVehicle(
+                            vehicle.heading,
+                            vehicle.name,
+                            vehicle.category,
+                            0,
+                            "unknown",
+                            vehicle.id,
+                            vehicle.tripId,
+                            vehicle.id,
+                            vehicle.latitude != null ? vehicle.latitude / 3600000.0 : null,
+                            vehicle.longitude != null ? vehicle.longitude / 3600000.0 : null,
+                            routeNumber,
+                            "1",
+                            vehicle.id,
+                            "ttss",
+                            vehicle.name,
+                            vehicle.color,
+                            System.currentTimeMillis(),
+                            destination,
+                            vehicle.tripId
+                        ));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to load bus vehicles: " + e.getMessage());
+        }
+        
+        try {
+            var tramVehicles = ttssClient.getTramVehicles("CORRECTED", "ROUTE_BASED", "0");
+            if (tramVehicles != null && tramVehicles.vehicles != null) {
+                for (var vehicle : tramVehicles.vehicles) {
+                    if (vehicle.isDeleted == null || !vehicle.isDeleted) {
+                        String routeNumber = extractRouteNumber(vehicle.name);
+                        String destination = extractDestination(vehicle.name);
+                        
+                        vehicles.add(new ActiveVehicle(
+                            vehicle.heading,
+                            vehicle.name,
+                            vehicle.category,
+                            0,
+                            "unknown",
+                            vehicle.id,
+                            vehicle.tripId,
+                            vehicle.id,
+                            vehicle.latitude != null ? vehicle.latitude / 3600000.0 : null,
+                            vehicle.longitude != null ? vehicle.longitude / 3600000.0 : null,
+                            routeNumber,
+                            "1",
+                            vehicle.id,
+                            "ttss",
+                            vehicle.name,
+                            vehicle.color,
+                            System.currentTimeMillis(),
+                            destination,
+                            vehicle.tripId
+                        ));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to load tram vehicles: " + e.getMessage());
+        }
+        
         return vehicles;
     }
 
     public List<Vehicle> getVehicles() {
         List<Vehicle> vehicles = new ArrayList<>();
-        vehicles.add(new Vehicle("bus", "low_floor", "BA113", "Autosan M09LE Sancity", "BA113", "M09LE"));
-        vehicles.add(new Vehicle("bus", "low_floor", "BA114", "Autosan M09LE Sancity", "BA114", "M09LE"));
-        vehicles.add(new Vehicle("tram", "low_floor", "3001", "Düwag N8C-NF", "3001", "N8C-NF"));
+        
+        try {
+            var busVehicles = ttssClient.getBusVehicles("CORRECTED", "ROUTE_BASED", "0");
+            if (busVehicles != null && busVehicles.vehicles != null) {
+                for (var vehicle : busVehicles.vehicles) {
+                    if (vehicle.isDeleted == null || !vehicle.isDeleted) {
+                        vehicles.add(new Vehicle(
+                            vehicle.category,
+                            "unknown",
+                            vehicle.id,
+                            "Bus " + vehicle.name,
+                            vehicle.id,
+                            vehicle.category
+                        ));
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        
+        try {
+            var tramVehicles = ttssClient.getTramVehicles("CORRECTED", "ROUTE_BASED", "0");
+            if (tramVehicles != null && tramVehicles.vehicles != null) {
+                for (var vehicle : tramVehicles.vehicles) {
+                    if (vehicle.isDeleted == null || !vehicle.isDeleted) {
+                        vehicles.add(new Vehicle(
+                            vehicle.category,
+                            "unknown",
+                            vehicle.id,
+                            "Tram " + vehicle.name,
+                            vehicle.id,
+                            vehicle.category
+                        ));
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        
         return vehicles;
     }
 
@@ -215,6 +320,28 @@ public class DataService {
         
         String first3 = fullId.length() >= 4 ? fullId.substring(0, 4) : fullId;
         return String.valueOf(Integer.parseInt(first3));
+    }
+    
+    private String extractRouteNumber(String vehicleName) {
+        if (vehicleName == null || vehicleName.isEmpty()) {
+            return "";
+        }
+        int spaceIndex = vehicleName.indexOf(' ');
+        if (spaceIndex > 0) {
+            return vehicleName.substring(0, spaceIndex);
+        }
+        return vehicleName;
+    }
+    
+    private String extractDestination(String vehicleName) {
+        if (vehicleName == null || vehicleName.isEmpty()) {
+            return "";
+        }
+        int spaceIndex = vehicleName.indexOf(' ');
+        if (spaceIndex > 0 && spaceIndex < vehicleName.length() - 1) {
+            return vehicleName.substring(spaceIndex + 1);
+        }
+        return "";
     }
     
 }
