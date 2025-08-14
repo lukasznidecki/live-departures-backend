@@ -1,8 +1,8 @@
-package com.example.resource;
+package com.lnidecki.livedepartures.resource;
 
-import com.example.response.ActiveVehiclesResponse;
-import com.example.response.VehiclesResponse;
-import com.example.service.DataService;
+import com.lnidecki.livedepartures.response.ActiveVehiclesResponse;
+import com.lnidecki.livedepartures.response.VehiclesResponse;
+import com.lnidecki.livedepartures.service.DataService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

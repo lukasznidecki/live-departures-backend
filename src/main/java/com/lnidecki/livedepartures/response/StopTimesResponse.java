@@ -1,8 +1,8 @@
-package com.example.response;
+package com.lnidecki.livedepartures.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.example.model.StopTime;
+import com.lnidecki.livedepartures.model.StopTime;
 import java.util.List;
 
 public class StopTimesResponse {

@@ -1,4 +1,4 @@
-package com.example.model;
+package com.lnidecki.livedepartures.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,7 +10,7 @@ public class StopTime {
     @JsonProperty("category")
     public String category;
     @JsonProperty("departure_timestamp")
-    public Long departureTimestamp;
+    public String departureTimestamp;
     @JsonProperty("hidden")
     public Boolean hidden;
     @JsonProperty("key")
@@ -24,11 +24,11 @@ public class StopTime {
     @JsonProperty("planned_departure_time")
     public String plannedDepartureTime;
     @JsonProperty("planned_departure_timestamp")
-    public Long plannedDepartureTimestamp;
+    public String plannedDepartureTimestamp;
     @JsonProperty("predicted_delay")
     public Double predictedDelay;
     @JsonProperty("predicted_departure_timestamp")
-    public Double predictedDepartureTimestamp;
+    public String predictedDepartureTimestamp;
     @JsonProperty("route_short_name")
     public String routeShortName;
     @JsonProperty("service_id")
@@ -44,10 +44,10 @@ public class StopTime {
 
     public StopTime() {}
 
-    public StopTime(Boolean arrival, String blockId, String category, Long departureTimestamp,
+    public StopTime(Boolean arrival, String blockId, String category, String departureTimestamp,
                    Boolean hidden, String key, String kmkId, Boolean live, Boolean old,
-                   String plannedDepartureTime, Long plannedDepartureTimestamp,
-                   Double predictedDelay, Double predictedDepartureTimestamp,
+                   String plannedDepartureTime, String plannedDepartureTimestamp,
+                   Double predictedDelay, String predictedDepartureTimestamp,
                    String routeShortName, String serviceId, String stopNum, Boolean stopping,
                    String tripHeadsign, String tripId) {
         this.arrival = arrival;
