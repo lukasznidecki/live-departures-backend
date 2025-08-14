@@ -1,6 +1,6 @@
-package com.example.response;
+package com.lnidecki.livedepartures.response;
 
-import com.example.model.Vehicle;
+import com.lnidecki.livedepartures.model.Vehicle;
 import java.util.List;
 
 public class VehiclesResponse {

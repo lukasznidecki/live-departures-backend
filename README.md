@@ -1,9 +1,10 @@
 # Live Departures Backend
 
-## 🌐 Live Demo
+## 🚌 Enhanced Krakow TTSS API
+
+An improved and optimized backend for Krakow's public transport system, providing real-time departures and stop information through a modern REST API.
 
 **Try the app: [https://live-departures.pages.dev/](https://live-departures.pages.dev/)**
-
 
 <p align="center">
   <img src="demo1.gif" height="75%"  />
@@ -24,9 +25,12 @@
 
 ## 🚀 Features
 
+- **Enhanced TTSS Integration** - Direct integration with Krakow's official TTSS API
+- **Smart Stop Name Resolution** - Query departures by stop name (e.g., "Górka Narodowa P+R")
+- **Intelligent Caching** - Startup caching of all stops for optimal performance
 - **Real-time vehicle tracking** - GPS coordinates and status of active vehicles
 - **Stop information** - Bus and tram stops with coordinates
-- **Departure times** - Current and predicted departure/arrival times
+- **Departure times** - Current and predicted departure/arrival times from multiple platforms
 - **Vehicle fleet data** - Complete information about all vehicles
 - **OpenAPI/Swagger documentation** - Interactive API documentation
 
@@ -47,7 +51,32 @@
 | `GET`  | `/api/vehicles`                        | Get all vehicles in the fleet                   |
 | `GET`  | `/api/vehicles/active/gtfs`            | Get active vehicles with real-time GPS data     |
 | `GET`  | `/api/stops`                           | Get all bus and tram stops                      |
-| `GET`  | `/api/stops/{stop}/current_stop_times` | Get current departure times for a specific stop |
+| `GET`  | `/api/stops/{stop}/current_stop_times` | Get departures by stop ID or stop name         |
+
+## 🎯 Enhanced TTSS Features
+
+### Smart Stop Name Query
+Query departures using human-readable stop names instead of cryptic IDs:
+
+```bash
+# Traditional approach (still supported)
+curl http://localhost:8080/api/stops/01/current_stop_times
+
+# Enhanced approach - use stop names directly!
+curl http://localhost:8080/api/stops/Górka%20Narodowa%20P%2BR/current_stop_times
+curl http://localhost:8080/api/stops/Elektromontaż/current_stop_times
+```
+
+### Intelligent Stop Resolution
+- Automatically detects if input is a stop name or ID
+- Finds all stop platforms matching the name
+- Aggregates departures from all matching platforms
+- Handles Polish characters and special symbols
+
+### Performance Optimizations
+- **Startup Caching**: All stops cached at application start
+- **Efficient API Calls**: Direct TTSS integration with optimized requests
+- **Error Resilience**: Graceful handling of TTSS API failures
 
 ## 🚦 Getting Started
 
@@ -168,10 +197,33 @@ curl http://localhost:8080/api/vehicles/active/gtfs
 curl http://localhost:8080/api/stops
 ```
 
-### Get Stop Times
+### Get Stop Times - Enhanced!
 
 ```bash
+# By stop ID (traditional)
 curl http://localhost:8080/api/stops/01/current_stop_times
+
+# By stop name (NEW! 🚀)
+curl "http://localhost:8080/api/stops/Główny Wschód/current_stop_times"
+curl "http://localhost:8080/api/stops/Plac Centralny im. Ronalda Reagana/current_stop_times"
+curl "http://localhost:8080/api/stops/Dworzec Główny Tunel/current_stop_times"
+
+# Works with Polish characters and special symbols
+curl "http://localhost:8080/api/stops/Kraków Główny/current_stop_times"
 ```
+
+## 🔧 TTSS Integration Details
+
+This backend directly integrates with Krakow's official TTSS (Transport Telematics System) APIs:
+
+- **Stops API**: `https://api.ttss.pl/stops/?type=t` (trams) and `?type=b` (buses)  
+- **Departures API**: `https://ttss.pl/proxy_bus.php/services/passageInfo/stopPassages/stop` (buses)
+- **Departures API**: `https://ttss.pl/proxy_tram.php/services/passageInfo/stopPassages/stop` (trams)
+
+### Architecture Benefits
+- **No Screen Scraping**: Direct API integration for reliability
+- **Real-time Data**: Live departure times from official sources
+- **Multiple Platforms**: Automatically aggregates data from all platforms of the same stop
+- **Fault Tolerance**: Continues working even if individual API calls fail
 
 

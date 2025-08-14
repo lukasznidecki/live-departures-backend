@@ -1,6 +1,6 @@
-package com.example.response;
+package com.lnidecki.livedepartures.response;
 
-import com.example.model.Stop;
+import com.lnidecki.livedepartures.model.Stop;
 import java.util.List;
 
 public class StopsResponse {

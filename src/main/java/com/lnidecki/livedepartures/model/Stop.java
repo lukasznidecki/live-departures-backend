@@ -1,4 +1,4 @@
-package com.example.model;
+package com.lnidecki.livedepartures.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
