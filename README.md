@@ -27,8 +27,9 @@ An improved and optimized backend for Krakow's public transport system, providin
 
 - **Enhanced TTSS Integration** - Direct integration with Krakow's official TTSS API
 - **Smart Stop Name Resolution** - Query departures by stop name (e.g., "Górka Narodowa P+R")
+- **Live Vehicle Tracking** - Real-time GPS positions of all buses and trams from TTSS
 - **Intelligent Caching** - Startup caching of all stops for optimal performance
-- **Real-time vehicle tracking** - GPS coordinates and status of active vehicles
+- **Real-time vehicle tracking** - GPS coordinates, heading, and route information
 - **Stop information** - Bus and tram stops with coordinates
 - **Departure times** - Current and predicted departure/arrival times from multiple platforms
 - **Vehicle fleet data** - Complete information about all vehicles
@@ -77,6 +78,12 @@ curl http://localhost:8080/api/stops/Elektromontaż/current_stop_times
 - **Startup Caching**: All stops cached at application start
 - **Efficient API Calls**: Direct TTSS integration with optimized requests
 - **Error Resilience**: Graceful handling of TTSS API failures
+
+### Live Vehicle Tracking
+- **Real-time GPS Data**: Direct integration with TTSS vehicle positioning system
+- **Route-based Coloring**: Vehicles colored by their routes for easy identification
+- **Heading Information**: Vehicle direction and movement data
+- **Multi-modal Support**: Both buses and trams tracked simultaneously
 
 ## 🚦 Getting Started
 
@@ -185,11 +192,19 @@ git push origin v1.0.0
 
 ## 📚 API Examples
 
-### Get Active Vehicles
+### Get Active Vehicles - Live TTSS Data! 🚀
 
 ```bash
+# Real-time positions of all buses and trams in Krakow
 curl http://localhost:8080/api/vehicles/active/gtfs
 ```
+
+**Response includes:**
+- GPS coordinates (lat/lng)
+- Vehicle heading/direction
+- Route information
+- Vehicle IDs and trip data
+- Route-based color coding
 
 ### Get Stop Information
 
@@ -216,14 +231,20 @@ curl "http://localhost:8080/api/stops/Kraków Główny/current_stop_times"
 
 This backend directly integrates with Krakow's official TTSS (Transport Telematics System) APIs:
 
+### Stop & Departure APIs
 - **Stops API**: `https://api.ttss.pl/stops/?type=t` (trams) and `?type=b` (buses)  
 - **Departures API**: `https://ttss.pl/proxy_bus.php/services/passageInfo/stopPassages/stop` (buses)
 - **Departures API**: `https://ttss.pl/proxy_tram.php/services/passageInfo/stopPassages/stop` (trams)
 
+### Vehicle Tracking APIs
+- **Bus Vehicles**: `https://ttss.pl/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles?positionType=CORRECTED&colorType=ROUTE_BASED&lastUpdate=0`
+- **Tram Vehicles**: `https://ttss.pl/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles?positionType=CORRECTED&colorType=ROUTE_BASED&lastUpdate=0`
+
 ### Architecture Benefits
 - **No Screen Scraping**: Direct API integration for reliability
-- **Real-time Data**: Live departure times from official sources
+- **Real-time Data**: Live departure times and vehicle positions from official sources
 - **Multiple Platforms**: Automatically aggregates data from all platforms of the same stop
+- **Live Vehicle Tracking**: Real-time GPS positions with heading and route information
 - **Fault Tolerance**: Continues working even if individual API calls fail
 
 
