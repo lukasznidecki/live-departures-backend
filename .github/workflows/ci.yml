@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: write
+
 on:
   push:
     branches: [ master, main ]
@@ -71,14 +74,23 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ github.token }}
         
+    - name: Generate intelligent version
+      id: version
+      run: |
+        DATE=$(date +'%Y%m%d')
+        TIME=$(date +'%H%M')
+        COMMIT_SHORT=$(git rev-parse --short HEAD)
+        VERSION="${DATE}.${TIME}.${COMMIT_SHORT}"
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        echo "Generated version: ${VERSION}"
+        
     - name: Extract metadata
       id: meta
       uses: docker/metadata-action@v5
       with:
         images: ghcr.io/${{ github.repository }}
         tags: |
-          type=ref,event=branch
-          type=sha
+          type=raw,value=${{ steps.version.outputs.version }}
           type=raw,value=latest,enable={{is_default_branch}}
           
     - name: Build and push Docker image
@@ -88,6 +100,20 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+        build-args: |
+          APP_VERSION=${{ steps.version.outputs.version }}
+          
+    - name: Update Helm Chart
+      run: |
+        sed -i "s/appVersion:.*/appVersion: \"${{ steps.version.outputs.version }}\"/" helm/live-departures-backend/Chart.yaml
+        
+    - name: Commit Helm chart update
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add helm/live-departures-backend/Chart.yaml
+        git diff --staged --quiet || git commit -m "chore: update helm chart appVersion to ${{ steps.version.outputs.version }} [skip ci]"
+        git push
       
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4

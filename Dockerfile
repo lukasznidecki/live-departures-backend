@@ -1,6 +1,20 @@
+FROM registry.access.redhat.com/ubi8/openjdk-21:1.18 AS builder
+
+ENV LANGUAGE='en_US:en'
+
+WORKDIR /build
+COPY pom.xml .
+COPY src src/
+
+RUN ./mvnw package -DskipTests -Dquarkus.package.type=uber-jar
+
 FROM registry.access.redhat.com/ubi8/openjdk-21:1.18
 
 ENV LANGUAGE='en_US:en'
+
+ARG APP_VERSION=dev
+LABEL app.version=${APP_VERSION}
+ENV APP_VERSION=${APP_VERSION}
 
 COPY --chown=185 target/quarkus-app/lib/ /deployments/lib/
 COPY --chown=185 target/quarkus-app/*.jar /deployments/
