@@ -188,4 +188,221 @@ public class VehicleResourceIntegrationTest {
                 .statusCode(200)
                 .body("vehicles", hasSize(0));
     }
+
+    @Test
+    public void testGetVehiclesEmptyResponse() {
+        WireMockServer wireMock = WireMockTestResource.getWireMock();
+
+        wireMock.stubFor(get(urlMatching("/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": []
+                            }
+                            """)));
+
+        wireMock.stubFor(get(urlMatching("/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": []
+                            }
+                            """)));
+
+        given()
+                .when().get("/api/vehicles")
+                .then()
+                .statusCode(200)
+                .body("vehicles", hasSize(0));
+    }
+
+    @Test
+    public void testGetActiveVehiclesEmptyResponse() {
+        WireMockServer wireMock = WireMockTestResource.getWireMock();
+
+        wireMock.stubFor(get(urlMatching("/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": []
+                            }
+                            """)));
+
+        wireMock.stubFor(get(urlMatching("/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": []
+                            }
+                            """)));
+
+        given()
+                .when().get("/api/vehicles/active/gtfs")
+                .then()
+                .statusCode(200)
+                .body("vehicles", hasSize(0));
+    }
+
+    @Test
+    public void testHandlePartialApiFailure() {
+        WireMockServer wireMock = WireMockTestResource.getWireMock();
+
+        wireMock.stubFor(get(urlMatching("/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(500)));
+
+        wireMock.stubFor(get(urlMatching("/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": [
+                                    {
+                                        "id": "3002",
+                                        "category": "tram",
+                                        "name": "4 Wzgórza Krzesławickie",
+                                        "tripId": "tram_trip_789",
+                                        "latitude": 180280000,
+                                        "longitude": 72100000,
+                                        "heading": 270.0,
+                                        "color": "0xf89f05",
+                                        "isDeleted": false
+                                    }
+                                ]
+                            }
+                            """)));
+
+        given()
+                .when().get("/api/vehicles/active/gtfs")
+                .then()
+                .statusCode(200)
+                .body("vehicles", hasSize(1));
+    }
+
+    @Test
+    public void testGetVehiclesWithNullCoordinates() {
+        WireMockServer wireMock = WireMockTestResource.getWireMock();
+
+        wireMock.stubFor(get(urlMatching("/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": [
+                                    {
+                                        "id": "BA999",
+                                        "category": "bus",
+                                        "name": "999 Test Route",
+                                        "tripId": "trip_999",
+                                        "latitude": null,
+                                        "longitude": null,
+                                        "heading": 0.0,
+                                        "color": "0xf89f05",
+                                        "isDeleted": false
+                                    }
+                                ]
+                            }
+                            """)));
+
+        wireMock.stubFor(get(urlMatching("/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": []
+                            }
+                            """)));
+
+        given()
+                .when().get("/api/vehicles/active/gtfs")
+                .then()
+                .statusCode(200)
+                .body("vehicles", hasSize(1));
+    }
+
+    @Test
+    public void testGetVehiclesMixedData() {
+        WireMockServer wireMock = WireMockTestResource.getWireMock();
+
+        wireMock.stubFor(get(urlMatching("/proxy_bus.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": [
+                                    {
+                                        "id": "BA100",
+                                        "category": "bus",
+                                        "name": "100 Borek Fałęcki",
+                                        "tripId": "trip_100",
+                                        "latitude": 180100000,
+                                        "longitude": 71600000,
+                                        "heading": 120.0,
+                                        "color": "0xf89f05",
+                                        "isDeleted": false
+                                    },
+                                    {
+                                        "id": "BA101",
+                                        "category": "bus", 
+                                        "name": "101",
+                                        "tripId": "trip_101",
+                                        "latitude": 180110000,
+                                        "longitude": 71610000,
+                                        "heading": 130.0,
+                                        "color": "0xf89f05",
+                                        "isDeleted": true
+                                    }
+                                ]
+                            }
+                            """)));
+
+        wireMock.stubFor(get(urlMatching("/proxy_tram.php/geoserviceDispatcher/services/vehicleinfo/vehicles.*"))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody("""
+                            {
+                                "lastUpdate": 1692014400,
+                                "vehicles": [
+                                    {
+                                        "id": "3003",
+                                        "category": "tram",
+                                        "name": "7",
+                                        "tripId": "tram_trip_7",
+                                        "latitude": 180270000,
+                                        "longitude": 72090000,
+                                        "heading": 45.0,
+                                        "color": "0xf89f05",
+                                        "isDeleted": false
+                                    }
+                                ]
+                            }
+                            """)));
+
+        given()
+                .when().get("/api/vehicles")
+                .then()
+                .statusCode(200)
+                .body("vehicles", hasSize(2));
+    }
 }
