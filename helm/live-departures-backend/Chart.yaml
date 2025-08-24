@@ -2,5 +2,4 @@ apiVersion: v2
 name: live-departures-backend
 description: A Helm chart for Live Departures Backend
 type: application
-version: 0.1.0
-appVersion: "1.0.0"
+version: 1.0.0
