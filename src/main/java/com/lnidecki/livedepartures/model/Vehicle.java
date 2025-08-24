@@ -1,30 +1,27 @@
 package com.lnidecki.livedepartures.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
+import lombok.Value;
 
+@Value
+@Builder
 public class Vehicle {
-    @JsonProperty("category")
-    public String category;
-    @JsonProperty("floor")
-    public String floor;
-    @JsonProperty("full_kmk_id")
-    public String fullKmkId;
-    @JsonProperty("full_model_name")
-    public String fullModelName;
-    @JsonProperty("kmk_id")
-    public String kmkId;
-    @JsonProperty("short_model_name")
-    public String shortModelName;
-
-    public Vehicle() {}
-
-    public Vehicle(String category, String floor, String fullKmkId, String fullModelName, 
-                   String kmkId, String shortModelName) {
-        this.category = category;
-        this.floor = floor;
-        this.fullKmkId = fullKmkId;
-        this.fullModelName = fullModelName;
-        this.kmkId = kmkId;
-        this.shortModelName = shortModelName;
-    }
+    @JsonProperty("category") 
+    String category;
+    
+    @JsonProperty("floor") 
+    String floor;
+    
+    @JsonProperty("full_kmk_id") 
+    String fullKmkId;
+    
+    @JsonProperty("full_model_name") 
+    String fullModelName;
+    
+    @JsonProperty("kmk_id") 
+    String kmkId;
+    
+    @JsonProperty("short_model_name") 
+    String shortModelName;
 }

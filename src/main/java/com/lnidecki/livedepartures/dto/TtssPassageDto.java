@@ -2,33 +2,14 @@ package com.lnidecki.livedepartures.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TtssPassageDto {
-    @JsonProperty("actualTime")
-    public String actualTime;
-    
-    @JsonProperty("actualRelativeTime")
-    public Integer actualRelativeTime;
-    
-    @JsonProperty("direction")
-    public String direction;
-    
-    @JsonProperty("mixedTime")
-    public String mixedTime;
-    
-    @JsonProperty("patternText")
-    public String patternText;
-    
-    @JsonProperty("plannedTime")
-    public String plannedTime;
-    
-    @JsonProperty("routeId")
-    public Long routeId;
-    
-    @JsonProperty("status")
-    public String status;
-    
-    @JsonProperty("vehicleId")
-    public String vehicleId;
-
-    public TtssPassageDto() {}
-}
+public record TtssPassageDto(
+    @JsonProperty("actualTime") String actualTime,
+    @JsonProperty("actualRelativeTime") Integer actualRelativeTime,
+    @JsonProperty("direction") String direction,
+    @JsonProperty("mixedTime") String mixedTime,
+    @JsonProperty("patternText") String patternText,
+    @JsonProperty("plannedTime") String plannedTime,
+    @JsonProperty("routeId") Long routeId,
+    @JsonProperty("status") String status,
+    @JsonProperty("vehicleId") String vehicleId
+) {}
