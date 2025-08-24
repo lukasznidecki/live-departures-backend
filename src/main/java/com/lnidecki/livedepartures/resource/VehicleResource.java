@@ -2,7 +2,7 @@ package com.lnidecki.livedepartures.resource;
 
 import com.lnidecki.livedepartures.response.ActiveVehiclesResponse;
 import com.lnidecki.livedepartures.response.VehiclesResponse;
-import com.lnidecki.livedepartures.service.DataService;
+import com.lnidecki.livedepartures.service.TransitDataService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -17,7 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 public class VehicleResource {
 
     @Inject
-    DataService dataService;
+    TransitDataService dataService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

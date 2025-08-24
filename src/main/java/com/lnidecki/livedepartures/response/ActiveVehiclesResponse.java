@@ -3,12 +3,4 @@ package com.lnidecki.livedepartures.response;
 import com.lnidecki.livedepartures.model.ActiveVehicle;
 import java.util.List;
 
-public class ActiveVehiclesResponse {
-    public List<ActiveVehicle> vehicles;
-
-    public ActiveVehiclesResponse() {}
-
-    public ActiveVehiclesResponse(List<ActiveVehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
-}
+public record ActiveVehiclesResponse(List<ActiveVehicle> vehicles) {}

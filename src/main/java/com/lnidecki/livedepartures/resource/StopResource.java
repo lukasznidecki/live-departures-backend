@@ -2,7 +2,7 @@ package com.lnidecki.livedepartures.resource;
 
 import com.lnidecki.livedepartures.response.StopsResponse;
 import com.lnidecki.livedepartures.response.StopTimesResponse;
-import com.lnidecki.livedepartures.service.DataService;
+import com.lnidecki.livedepartures.service.TransitDataService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -19,7 +19,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 public class StopResource {
 
     @Inject
-    DataService dataService;
+    TransitDataService dataService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,13 +38,13 @@ public class StopResource {
             @Parameter(description = "Stop ID, stop number, or stop name", required = true)
             @PathParam("stop") String stop) {
         
+        var isStopName = stop.contains(" ") || stop.contains("+") || stop.contains("-") || 
+            stop.matches(".*[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ].*");
         
-        if (stop.contains(" ") || stop.contains("+") || stop.contains("-") || 
-            stop.matches(".*[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ].*")) {
-            return new StopTimesResponse(dataService.getDeparturesByStopName(stop));
-        }
-        
-        
-        return new StopTimesResponse(dataService.getStopTimes(stop));
+        var stopTimes = isStopName 
+            ? dataService.getDeparturesByStopName(stop)
+            : dataService.getStopTimes(stop);
+            
+        return new StopTimesResponse(stopTimes);
     }
 }

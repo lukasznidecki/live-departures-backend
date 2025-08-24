@@ -3,15 +3,8 @@ package com.lnidecki.livedepartures.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class TtssStopPassagesDto {
-    @JsonProperty("actual")
-    public List<TtssPassageDto> actual;
-    
-    @JsonProperty("stopName")
-    public String stopName;
-    
-    @JsonProperty("stopShortName")
-    public String stopShortName;
-
-    public TtssStopPassagesDto() {}
-}
+public record TtssStopPassagesDto(
+    @JsonProperty("actual") List<TtssPassageDto> actual,
+    @JsonProperty("stopName") String stopName,
+    @JsonProperty("stopShortName") String stopShortName
+) {}

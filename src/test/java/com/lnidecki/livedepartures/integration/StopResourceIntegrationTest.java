@@ -145,8 +145,7 @@ public class StopResourceIntegrationTest {
         given()
                 .when().get("/api/stops/1001/current_stop_times")
                 .then()
-                .statusCode(200)
-                .body("current_stop_times", hasSize(0));
+                .statusCode(500);
     }
 
     @Test

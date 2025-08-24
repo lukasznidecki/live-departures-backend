@@ -1,7 +1,6 @@
 package com.lnidecki.livedepartures.client;
 
 import com.lnidecki.livedepartures.dto.TtssStopDto;
-import com.lnidecki.livedepartures.dto.TtssStopPassagesDto;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
