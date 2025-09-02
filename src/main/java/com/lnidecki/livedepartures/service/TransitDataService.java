@@ -2,18 +2,19 @@ package com.lnidecki.livedepartures.service;
 
 import com.lnidecki.livedepartures.client.TtssApiClient;
 import com.lnidecki.livedepartures.client.TtssClient;
+import com.lnidecki.livedepartures.dto.TtssStopPassagesDto;
 import com.lnidecki.livedepartures.dto.TtssVehicleDto;
 import com.lnidecki.livedepartures.dto.TtssVehiclesResponseDto;
 import com.lnidecki.livedepartures.model.ActiveVehicle;
 import com.lnidecki.livedepartures.model.Stop;
 import com.lnidecki.livedepartures.model.StopTime;
 import com.lnidecki.livedepartures.model.Vehicle;
+import com.lnidecki.livedepartures.model.VehicleType;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 @ApplicationScoped
@@ -30,19 +31,21 @@ public class TransitDataService {
     @Inject
     StopCacheService stopCacheService;
 
+    private static final String CORRECTED = "CORRECTED";
+    private static final String ROUTE_BASED = "ROUTE_BASED";
+    private static final String DEFAULT_END = "0";
+    private static final String DEPARTURE = "departure";
+
     public List<ActiveVehicle> getActiveVehicles() {
-        return Stream.of(
-                        fetchVehicles(() -> ttssClient.getBusVehicles("CORRECTED", "ROUTE_BASED", "0"), "bus"),
-                        fetchVehicles(() -> ttssClient.getTramVehicles("CORRECTED", "ROUTE_BASED", "0"), "tram")
-                )
+        return Stream.of(VehicleType.BUS, VehicleType.TRAM)
+                .map(this::fetchVehicles)
                 .flatMap(List::stream)
                 .toList();
     }
 
     public List<Vehicle> getVehicles() {
-        var busVehicles = getVehiclesByType("bus");
-        var tramVehicles = getVehiclesByType("tram");
-        return Stream.of(busVehicles, tramVehicles)
+        return Stream.of(VehicleType.BUS, VehicleType.TRAM)
+                .map(this::getVehiclesByType)
                 .flatMap(List::stream)
                 .toList();
     }
@@ -76,9 +79,8 @@ public class TransitDataService {
     }
 
     public List<StopTime> getStopTimes(String stopId) {
-        var busStopTimes = getStopTimesByType("bus", stopId, stopId);
-        var tramStopTimes = getStopTimesByType("tram", stopId, stopId);
-        return Stream.of(busStopTimes, tramStopTimes)
+        return Stream.of(VehicleType.BUS, VehicleType.TRAM)
+                .map(type -> getStopTimesByType(type, stopId, stopId))
                 .flatMap(List::stream)
                 .toList();
     }
@@ -87,17 +89,16 @@ public class TransitDataService {
         return stopCacheService.getStopIdsByName(stopName).stream()
                 .map(this::convertToTtssId)
                 .flatMap(ttssStopId ->
-                        Stream.of(
-                                getStopTimesByType("bus", ttssStopId, stopName),
-                                getStopTimesByType("tram", ttssStopId, stopName)
-                        ).flatMap(List::stream)
+                        Stream.of(VehicleType.BUS, VehicleType.TRAM)
+                                .map(type -> getStopTimesByType(type, ttssStopId, stopName))
+                                .flatMap(List::stream)
                 )
                 .toList();
     }
 
-    private List<ActiveVehicle> fetchVehicles(Supplier<TtssVehiclesResponseDto> vehicleSupplier, String vehicleType) {
+    private List<ActiveVehicle> fetchVehicles(VehicleType vehicleType) {
         try {
-            var response = vehicleSupplier.get();
+            var response = getVehiclesResponse(vehicleType);
             if (response != null && response.vehicles() != null) {
                 return response.vehicles().stream()
                         .filter(vehicle -> vehicle.isDeleted() == null || !vehicle.isDeleted())
@@ -105,16 +106,16 @@ public class TransitDataService {
                         .toList();
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to fetch " + vehicleType + " vehicles from TTSS API: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to fetch " + vehicleType.type() + " vehicles from TTSS API: " + e.getMessage(), e);
         }
         return List.of();
     }
 
-    private ActiveVehicle createActiveVehicle(TtssVehicleDto vehicle, String vehicleType) {
+    private ActiveVehicle createActiveVehicle(TtssVehicleDto vehicle, VehicleType vehicleType) {
         return ActiveVehicle.builder()
                 .bearing(vehicle.heading())
                 .blockId(vehicle.name())
-                .category(vehicle.category())
+                .category(vehicleType.type())
                 .currentStatus(0)
                 .floor("unknown")
                 .fullKmkId(vehicle.id())
@@ -134,14 +135,9 @@ public class TransitDataService {
                 .build();
     }
 
-    private List<Vehicle> getVehiclesByType(String type) {
+    private List<Vehicle> getVehiclesByType(VehicleType type) {
         try {
-            var response = switch (type) {
-                case "bus" -> ttssClient.getBusVehicles("CORRECTED", "ROUTE_BASED", "0");
-                case "tram" -> ttssClient.getTramVehicles("CORRECTED", "ROUTE_BASED", "0");
-                default -> null;
-            };
-
+            var response = getVehiclesResponse(type);
             if (response != null && response.vehicles() != null) {
                 return response.vehicles().stream()
                         .filter(vehicle -> vehicle.isDeleted() == null || !vehicle.isDeleted())
@@ -150,9 +146,8 @@ public class TransitDataService {
                                 .floor("unknown")
                                 .fullKmkId(vehicle.id())
                                 .fullModelName(switch (type) {
-                                    case "bus" -> "Bus " + vehicle.name();
-                                    case "tram" -> "Tram " + vehicle.name();
-                                    default -> vehicle.name();
+                                    case BUS -> "Bus " + vehicle.name();
+                                    case TRAM -> "Tram " + vehicle.name();
                                 })
                                 .kmkId(vehicle.id())
                                 .shortModelName(vehicle.category())
@@ -160,25 +155,20 @@ public class TransitDataService {
                         .toList();
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to retrieve " + type + " vehicles data from TTSS client: " + e.getMessage(), e);
+            throw new RuntimeException("Failed to retrieve " + type.type() + " vehicles data from TTSS client: " + e.getMessage(), e);
         }
         return List.of();
     }
 
-    private List<StopTime> getStopTimesByType(String vehicleType, String ttssStopId, String stopId) {
+    private List<StopTime> getStopTimesByType(VehicleType vehicleType, String ttssStopId, String stopId) {
         try {
-            var passages = switch (vehicleType) {
-                case "bus" -> ttssClient.getBusStopPassages(ttssStopId, "departure");
-                case "tram" -> ttssClient.getTramStopPassages(ttssStopId, "departure");
-                default -> null;
-            };
-
+            var passages = getStopPassages(vehicleType, ttssStopId);
             if (passages != null && passages.actual() != null) {
                 return passages.actual().stream()
                         .map(passage -> StopTime.builder()
                                 .arrival(false)
                                 .blockId(null)
-                                .category(vehicleType)
+                                .category(vehicleType.type())
                                 .departureTimestamp(passage.actualTime())
                                 .hidden(false)
                                 .key(stopId + "_" + passage.routeId() + "_" + passage.actualTime())
@@ -199,9 +189,23 @@ public class TransitDataService {
                         .toList();
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to get " + vehicleType + " stop passages for stop " + ttssStopId + ": " + e.getMessage(), e);
+            throw new RuntimeException("Failed to get " + vehicleType.type() + " stop passages for stop " + ttssStopId + ": " + e.getMessage(), e);
         }
         return List.of();
+    }
+
+    private TtssVehiclesResponseDto getVehiclesResponse(VehicleType type) {
+        return switch (type) {
+            case BUS -> ttssClient.getBusVehicles(CORRECTED, ROUTE_BASED, DEFAULT_END);
+            case TRAM -> ttssClient.getTramVehicles(CORRECTED, ROUTE_BASED, DEFAULT_END);
+        };
+    }
+
+    private TtssStopPassagesDto getStopPassages(VehicleType type, String ttssStopId) {
+        return switch (type) {
+            case BUS -> ttssClient.getBusStopPassages(ttssStopId, DEPARTURE);
+            case TRAM -> ttssClient.getTramStopPassages(ttssStopId, DEPARTURE);
+        };
     }
 
     private String convertToTtssId(String fullId) {
