@@ -89,7 +89,7 @@ curl http://localhost:8080/api/stops/Elektromontaż/current_stop_times
 
 ### Prerequisites
 
-- Java 21 or later
+- Java 25 or later
 - Maven 3.8.1 or later
 
 ### Development
